@@ -33,13 +33,25 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Local Notification'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            LocalNotificationService.showBasicNotification();
-          },
-          child: const Text('Show Notification'),
-        ),
+      body: Column(
+        children: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                LocalNotificationService.showBasicNotification();
+              },
+              child: const Text('Show Notification'),
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                LocalNotificationService.showRepeatedNotifiation();
+              },
+              child: const Text('Show Notification'),
+            ),
+          ),
+        ],
       ),
     );
   }

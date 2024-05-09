@@ -37,9 +37,13 @@ class LocalNotificationService {
     );
   }
 
-  //basic Notification2
-  static void showBasicNotification2() async {
-    AndroidNotificationDetails android = AndroidNotificationDetails(
+  void cancelNotificatiom(int id) async {
+    await flutterLocalNotificationsPlugin.cancel(id);
+  }
+
+  // repating Notification
+  static void showRepeatedNotifiation() async {
+    AndroidNotificationDetails android = const AndroidNotificationDetails(
       'id 3',
       'basic notification1',
       importance: Importance.max,
@@ -48,10 +52,11 @@ class LocalNotificationService {
     NotificationDetails details = NotificationDetails(
       android: android,
     );
-    await flutterLocalNotificationsPlugin.show(
+    await flutterLocalNotificationsPlugin.periodicallyShow(
       4,
       'Basic Notification',
       'body',
+      RepeatInterval.everyMinute,
       details,
     );
   }
